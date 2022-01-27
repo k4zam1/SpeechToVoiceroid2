@@ -1,0 +1,2 @@
+# SpeechToVoiceroid2
+話し声をVoiceroid2で喋らせる
