@@ -4,12 +4,7 @@ import subprocess
 
 class Voicerid2:
     def __init__(self):
-        subprocess.Popen(
-            'C:/Program Files (x86)/AHS/VOICEROID2/VoiceroidEditor.exe')
         parentUIAElement = pywinauto.uia_element_info.UIAElementInfo()
-
-        # 起動元
-        # console_name = "Visual Studio Code"
         # app = pywinauto.Application().connect(path="cmd.exe")
         # self.console = app.window()
 
@@ -45,26 +40,20 @@ class Voicerid2:
         # self.console.set_focus()
 
     def __search_child_byname(self, name, uiaElementInfo):
-        # 全ての子要素検索
         for childElement in uiaElementInfo.children():
-            # Nameの一致確認
             if childElement.name == name:
                 return childElement
-        # 無かったらFalse
         return False
 
     def __search_child_byclassname(self, class_name, uiaElementInfo, target_all=False):
         target = []
-        # 全ての子要素検索
         for childElement in uiaElementInfo.children():
-            # ClassNameの一致確認
             if childElement.class_name == class_name:
                 if target_all == False:
                     return childElement
                 else:
                     target.append(childElement)
         if target_all == False:
-            # 無かったらFalse
             return False
         else:
             return target
